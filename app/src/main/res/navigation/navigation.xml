@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/userDetailFragment">
+    <fragment
+        android:id="@+id/partyHomeFragment"
+        android:name="com.example.blackout.ui.PartyHomeFragment"
+        android:label="Blackout">
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@+id/partyDetailFragment"
+            app:popUpTo="@+id/partyHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/partyDetailFragment"
+        android:name="com.example.blackout.ui.PartyDetailFragment"
+        android:label="Party Time" >
+        <argument
+            android:name="partyId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_partyDetailFragment_to_fullSizeImageFragment"
+            app:destination="@id/fullSizeImageFragment"
+            app:popUpTo="@+id/partyDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/statsFragment"
+        android:name="com.example.blackout.ui.StatsFragment"
+        android:label="Statistics"
+        tools:layout="@layout/fragment_stats" />
+    <fragment
+        android:id="@+id/partyAboutFragment"
+        android:name="com.example.blackout.ui.PartyAboutFragment"
+        android:label="About"
+        tools:layout="@layout/fragment_party_about" />
+    <fragment
+        android:id="@+id/userDetailFragment"
+        android:name="com.example.blackout.ui.UserDetailFragment"
+        android:label="Settings" >
+        <action
+            android:id="@+id/action_userDetailFragment_to_partyHomeFragment"
+            app:destination="@id/partyHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fullSizeImageFragment"
+        android:name="com.example.blackout.ui.FullSizeImageFragment"
+        android:label="fragment_full_size_image"
+        tools:layout="@layout/fragment_full_size_image" >
+        <action
+            android:id="@+id/action_fullSizeImageFragment_to_partyDetailFragment"
+            app:destination="@id/partyDetailFragment"
+            app:popUpTo="@+id/partyDetailFragment" />
+        <argument
+            android:name="partyId"
+            app:argType="long" />
+        <argument
+            android:name="imageUriStr"
+            app:argType="string" />
+    </fragment>
+</navigation>

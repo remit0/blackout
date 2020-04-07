@@ -1,0 +1,19 @@
+<resources>
+
+    <!-- Main theme -->
+    <style name="AppTheme" parent="Theme.MaterialComponents">
+        <!-- colors -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- text -->
+        <item name="android:fontFamily">@font/roboto_thin</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+
+    <style name="TitleTextBox" parent="AppTheme">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

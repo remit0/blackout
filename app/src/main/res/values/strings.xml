@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">Blackout</string>
+
+    <!-- descriptions -->
+    <string name="description_logo">Blackout logo</string>
+
+    <!-- static text -->
+    <string name="weight">weight</string>
+    <string name="height">height</string>
+    <string name="gender">gender</string>
+    <string name="age">age</string>
+    <string name="gender_m">M</string>
+    <string name="gender_f">F</string>
+    <string name="start">start</string>
+    <string name="edit">edit</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about">About</string>
+    <string name="stats">Stats</string>
+    <string name="settings">Settings</string>
+
+    <!-- hints -->
+    <string name="height_hint">your height in cm</string>
+    <string name="weight_hint">your weight in kg</string>
+    <string name="age_hint">your age</string>
+
+    <!-- formatting -->
+    <string name="alcohol_score_format">Score: %.2f g/L</string>
+    <string name="alcohol_score_format_short">%.2f g/L</string>
+    <string name="increase_format">%d %%</string>
+    <string name="memories">Memories</string>
+    <string name="aboutIntro">
+        Blackout gives you an upper bound of your alcohol level in gram of pure alcohol per L of blood. It also
+        let you add memories of your night as photos in case you would like to remember what you have done.
+        Be aware that from the moment your start recording your alcohol consumption, the app groups every drink
+        you input for 12h before letting you start another party.
+        \n
+        \n
+        <b>Lastly, we remind you that excessive alcohol consumption is harmful for you health and can damage your
+            liver, brain, nervous system, heart, muscles and digestive.
+        </b>
+
+    </string>
+    <string name="introduction">Introduction</string>
+    <string name="computations">Computations</string>
+    <string name="computationText1">
+        There are 3 ways to input your drinks the pint of beer, the wine glass and the shot of hard.
+        The quantities are standard and listed below :
+        \n
+        &#8226; Beer: 50cL of a 6% beer\n
+        &#8226; Wine: 12.5cL of a 13% wine\n
+        &#8226; Shot: 5cl of a 40% hard alcohol\n
+        \n
+        The amount of pure alcohol, in gram, for a drink is computed as : \n
+        <b>pureAlcohol = (8 * degree * amountCL) / 100 </b> \n
+        (note: the number 8 comes from the density of pure alcohol as 1L of pure alcohol weights 800 grams)
+        \n
+        \n
+        To derive the quantity of alcohol that you have in your blood, we need two more variables: \n
+        &#8226; your weight \n
+        &#8226; you sex \n
+        \n
+        Be aware that our model does not take into account if you have eaten or not (which delays the arrival of alcohol
+        in your blood). Furthermore, it does not use the decay of alcohol in your blood either. Therefore, it is an
+        upper bound of the true level of alcohol in your blood.
+        \n
+        \n
+        The formula to compute the quantity is: \n
+        <b>quantityAlcoholInBlood = pureAlcoholDrank / (yourWeight * sexFactor) </b>
+        \n
+        \n
+        The sexFactor is a constant which equals 0.7 for men and 0.6 for women.
+    </string>
+    <string name="sideNotes">Side Notes</string>
+    <string name="sideNotesText">Your personal information is stored locally and totally inacessible from
+    the creator of this app, feel free to enter your REAL weight. Though you can lie on your age, it is
+        not currently used by the app.
+    </string>
+    <string name="best_score">Personal Best</string>
+    <string name="variation">Variation since last week</string>
+
+
+</resources>

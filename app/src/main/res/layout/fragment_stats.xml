@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="statsViewModel"
+            type="com.example.blackout.viewmodels.StatsViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primaryDarkColor">
+
+
+        <TextView
+            android:id="@+id/maxScoreText"
+            style="@style/TitleTextBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"
+            android:text="@{@string/alcohol_score_format_short(statsViewModel.maxScore)}"
+            app:layout_constraintEnd_toStartOf="@+id/increaseText"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="2.00 g/L" />
+
+        <TextView
+            android:id="@+id/increaseText"
+            style="@style/TitleTextBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"
+            android:text="@{@string/increase_format(statsViewModel.increase)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/maxScoreText"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="54%" />
+
+        <TextView
+            android:id="@+id/maxScoreHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/best_score"
+            app:layout_constraintEnd_toEndOf="@+id/maxScoreText"
+            app:layout_constraintStart_toStartOf="@+id/maxScoreText"
+            app:layout_constraintTop_toBottomOf="@+id/maxScoreText" />
+
+        <TextView
+            android:id="@+id/increaseHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/variation"
+            app:layout_constraintEnd_toEndOf="@+id/increaseText"
+            app:layout_constraintHorizontal_bias="0.43"
+            app:layout_constraintStart_toStartOf="@+id/increaseText"
+            app:layout_constraintTop_toBottomOf="@+id/increaseText" />
+
+        <!--
+        <com.anychart.AnyChartView
+            android:id="@+id/pieChart"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/increaseHeader" />
+        -->
+        <com.anychart.AnyChartView
+            android:id="@+id/lineChart"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/increaseHeader" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

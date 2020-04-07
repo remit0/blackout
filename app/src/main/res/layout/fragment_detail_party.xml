@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="partyViewModel"
+            type="com.example.blackout.viewmodels.PartyDetailViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primaryColor">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/image_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                tools:itemCount="30"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/memories_static_text" />
+
+            <TextView
+                android:id="@+id/alcohol_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="@{@string/alcohol_score_format(partyViewModel.score)}"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1.0 g/L" />
+
+            <ImageView
+                android:id="@+id/beer_icon"
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/beer"
+                app:layout_constraintEnd_toStartOf="@+id/wine_icon"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/beer_count_text" />
+
+            <ImageView
+                android:id="@+id/wine_icon"
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/wine"
+                app:layout_constraintEnd_toStartOf="@+id/whisky_icon"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/beer_icon"
+                app:layout_constraintTop_toBottomOf="@+id/wine_count_text" />
+
+            <ImageView
+                android:id="@+id/whisky_icon"
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/hard"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/wine_icon"
+                app:layout_constraintTop_toBottomOf="@+id/hard_count_text" />
+
+            <ImageButton
+                android:id="@+id/down_beer_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorAccent"
+                android:onClick="@{() -> partyViewModel.subBeer()}"
+                android:src="@android:drawable/arrow_down_float"
+                android:visibility="@{partyViewModel.partyButtonVisible}"
+                app:layout_constraintStart_toStartOf="@+id/beer_icon"
+                app:layout_constraintTop_toBottomOf="@+id/beer_icon" />
+
+            <ImageButton
+                android:id="@+id/up_beer_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorAccent"
+                android:onClick="@{() -> partyViewModel.addBeer()}"
+                android:src="@android:drawable/arrow_up_float"
+                android:visibility="@{partyViewModel.partyButtonVisible}"
+                app:layout_constraintEnd_toEndOf="@+id/beer_icon"
+                app:layout_constraintStart_toEndOf="@+id/down_beer_button"
+                app:layout_constraintTop_toBottomOf="@+id/beer_icon" />
+
+            <ImageButton
+                android:id="@+id/down_wine_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorAccent"
+                android:onClick="@{() -> partyViewModel.subWine()}"
+                android:src="@android:drawable/arrow_down_float"
+                android:visibility="@{partyViewModel.partyButtonVisible}"
+                app:layout_constraintStart_toStartOf="@+id/wine_icon"
+                app:layout_constraintTop_toBottomOf="@+id/wine_icon" />
+
+            <ImageButton
+                android:id="@+id/up_wine_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:backgroundTint="@color/colorAccent"
+                android:onClick="@{() -> partyViewModel.addWine()}"
+                android:src="@android:drawable/arrow_up_float"
+                android:visibility="@{partyViewModel.partyButtonVisible}"
+                app:layout_constraintEnd_toEndOf="@+id/wine_icon"
+                app:layout_constraintStart_toEndOf="@+id/down_wine_button"
+                app:layout_constraintTop_toBottomOf="@+id/wine_icon" />
+
+            <ImageButton
+                android:id="@+id/down_hard_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorAccent"
+                android:onClick="@{() -> partyViewModel.subHard()}"
+                android:src="@android:drawable/arrow_down_float"
+                android:visibility="@{partyViewModel.partyButtonVisible}"
+                app:layout_constraintStart_toStartOf="@+id/whisky_icon"
+                app:layout_constraintTop_toBottomOf="@+id/whisky_icon" />
+
+            <ImageButton
+                android:id="@+id/up_hard_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:backgroundTint="@color/colorAccent"
+                android:onClick="@{() -> partyViewModel.addHard()}"
+                android:src="@android:drawable/arrow_up_float"
+                android:visibility="@{partyViewModel.partyButtonVisible}"
+                app:layout_constraintEnd_toEndOf="@+id/whisky_icon"
+                app:layout_constraintStart_toEndOf="@+id/down_hard_button"
+                app:layout_constraintTop_toBottomOf="@+id/whisky_icon" />
+
+            <TextView
+                android:id="@+id/beer_count_text"
+                style="@style/TitleTextBox"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center_horizontal"
+                android:text="@{String.valueOf(partyViewModel.beerCount)}"
+                app:layout_constraintEnd_toStartOf="@+id/wine_count_text"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/alcohol_text"
+                tools:text="0" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/memories_static_text"
+                app:layout_constraintTop_toBottomOf="@+id/name_edit_text"
+                android:visibility="@{partyViewModel.partyButtonVisible}"
+                app:srcCompat="@android:drawable/ic_menu_camera" />
+
+            <TextView
+                android:id="@+id/memories_static_text"
+                style="@style/TitleTextBox"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/memories"
+                android:gravity="center_vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+                app:layout_constraintEnd_toStartOf="@+id/imageButton"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageButton" />
+
+            <TextView
+                android:id="@+id/wine_count_text"
+                style="@style/TitleTextBox"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_horizontal"
+                android:text="@{String.valueOf(partyViewModel.wineCount)}"
+                app:layout_constraintEnd_toStartOf="@+id/hard_count_text"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/beer_count_text"
+                app:layout_constraintTop_toBottomOf="@+id/alcohol_text"
+                tools:text="0" />
+
+            <TextView
+                android:id="@+id/hard_count_text"
+                style="@style/TitleTextBox"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center_horizontal"
+                android:text="@{String.valueOf(partyViewModel.hardCount)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/wine_count_text"
+                app:layout_constraintTop_toBottomOf="@+id/alcohol_text"
+                tools:text="0" />
+
+            <EditText
+                android:id="@+id/name_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:text="@{partyViewModel.name}"
+                android:visibility="@{partyViewModel.nameEditViewVisible}"
+                app:layout_constraintBottom_toBottomOf="@+id/name_modify_button"
+                app:layout_constraintEnd_toStartOf="@+id/name_modify_button"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/name_modify_button" />
+
+            <ImageButton
+                android:id="@+id/name_modify_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/name_edit_text"
+                app:layout_constraintTop_toBottomOf="@+id/up_wine_button"
+                app:srcCompat="@android:drawable/ic_menu_edit" />
+
+            <TextView
+                android:id="@+id/name_text"
+                style="@style/TitleTextBox"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:gravity="center_vertical"
+                android:text="@{partyViewModel.name}"
+                android:visibility="@{partyViewModel.nameTextViewVisible}"
+                app:layout_constraintBottom_toBottomOf="@+id/name_edit_text"
+                app:layout_constraintEnd_toEndOf="@+id/name_edit_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/name_edit_text"
+                tools:visibility="invisible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>
